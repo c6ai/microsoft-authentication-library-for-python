@@ -172,6 +172,15 @@ class ManagedIdentityClient(object):
 
         The result will be automatically cached.
         Subsequent calls will automatically seaarch from cache first.
+
+        .. note::
+
+            Known issue: When an Azure VM has only one user-assigned managed identity,
+            and your app specifies to use system-assigned managed identity,
+            Azure VM may still return a token for your user-assigned identity.
+
+            This is a service-side behavior that cannot be changed by this library.
+            `Azure VM docs <https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http>`_
         """
         if not resource:
             raise ValueError(
@@ -266,7 +275,7 @@ def _obtain_token(http_client, managed_identity, resource):
     if "IDENTITY_ENDPOINT" in os.environ and "IMDS_ENDPOINT" in os.environ:
         if ManagedIdentity.is_user_assigned(managed_identity):
             raise ValueError(  # Note: Azure Identity for Python raised exception too
-                "Ignoring managed_identity parameter. "
+                "Invalid managed_identity parameter. "
                 "Azure Arc supports only system-assigned managed identity, "
                 "See also "
                 "https://learn.microsoft.com/en-us/azure/service-fabric/configure-existing-cluster-enable-managed-identity-token-service")
