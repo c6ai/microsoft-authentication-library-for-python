@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1701419550517,
+  "lastUpdate": 1701765226978,
   "repoUrl": "https://github.com/AzureAD/microsoft-authentication-library-for-python",
   "entries": {
     "Benchmark": [
@@ -7399,6 +7399,58 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000014113812333376095",
             "extra": "mean: 110.06663420872289 usec\nrounds: 4303"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "rayluo@microsoft.com",
+            "name": "Ray Luo",
+            "username": "rayluo"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "607e702632ae94a7659e4c466868262d527ba995",
+          "message": "AT POP for Public Client based on broker (#511)\n\n* AT POP for Public Client based on broker\r\n\r\nPop test case\r\n\r\n* Use token source during e2e tests\r\n\r\n* WIP: unsuccessful e2e test for POP SHR",
+          "timestamp": "2023-12-05T00:31:04-08:00",
+          "tree_id": "8dfd3622faa4271bd96fd3a4fae8e630d022b3d2",
+          "url": "https://github.com/AzureAD/microsoft-authentication-library-for-python/commit/607e702632ae94a7659e4c466868262d527ba995"
+        },
+        "date": 1701765226186,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tests/test_benchmark.py::test_cca_1_tenant_with_10_tokens_per_tenant_and_cache_hit",
+            "value": 31990.068798311644,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000018832246527601802",
+            "extra": "mean: 31.2597014499943 usec\nrounds: 8414"
+          },
+          {
+            "name": "tests/test_benchmark.py::test_cca_many_tenants_with_10_tokens_per_tenant_and_cache_hit",
+            "value": 29732.73312234788,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000002754256426198237",
+            "extra": "mean: 33.63296592631017 usec\nrounds: 11886"
+          },
+          {
+            "name": "tests/test_benchmark.py::test_cca_1_tenant_with_10_tokens_per_tenant_and_cache_miss",
+            "value": 9166.57274123236,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000014598369871297921",
+            "extra": "mean: 109.09202689265513 usec\nrounds: 4425"
+          },
+          {
+            "name": "tests/test_benchmark.py::test_cca_many_tenants_with_10_tokens_per_tenant_and_cache_miss",
+            "value": 8877.183227331894,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000014322264144387664",
+            "extra": "mean: 112.64834513284656 usec\nrounds: 4633"
           }
         ]
       }
